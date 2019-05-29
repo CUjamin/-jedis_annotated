@@ -111,6 +111,10 @@ public class JedisSentinelPool extends Pool<Jedis> {
     return currentHostMaster;
   }
 
+  /**
+   * 初始化主节点
+   * @param master
+   */
   private void initPool(HostAndPort master) {
     synchronized(initPoolLock){
       if (!master.equals(currentHostMaster)) {

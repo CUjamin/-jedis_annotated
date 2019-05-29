@@ -1033,6 +1033,10 @@ public class BinaryClient extends Connection {
     sendCommand(BITOP, joinParameters(kw.raw, destKey, srcKeys));
   }
 
+  /**
+   * sentinel 命令，命令名为 SENTINEL
+   * @param args
+   */
   public void sentinel(final byte[]... args) {
     sendCommand(SENTINEL, args);
   }

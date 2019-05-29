@@ -2923,6 +2923,8 @@ public class Jedis extends BinaryJedis implements JedisCommands, MultiKeyCommand
 
   /**
    * <pre>
+   * 使用命令sentinel get-master-addr-by-name mymaster来获取主节点的ip和端口
+   * 以下命令在redis-cli中同样有效：
    * redis 127.0.0.1:26381&gt; sentinel get-master-addr-by-name mymaster
    * 1) "127.0.0.1"
    * 2) "6379"

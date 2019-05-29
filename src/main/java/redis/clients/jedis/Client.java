@@ -821,6 +821,10 @@ public class Client extends BinaryClient implements Commands {
     bitop(op, SafeEncoder.encode(destKey), SafeEncoder.encodeMany(srcKeys));
   }
 
+  /**
+   * sentinel 命令，发送命令时，使用命令名 SENTINEL
+   * @param args
+   */
   public void sentinel(final String... args) {
     sentinel(SafeEncoder.encodeMany(args));
   }

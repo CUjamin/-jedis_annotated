@@ -121,6 +121,12 @@ public class Connection implements Closeable {
     return sendCommand(cmd, EMPTY_ARGS);
   }
 
+  /**
+   *
+   * @param cmd
+   * @param args
+   * @return
+   */
   protected Connection sendCommand(final Command cmd, final byte[]... args) {
     try {
       connect();
