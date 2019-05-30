@@ -1830,6 +1830,9 @@ public class BinaryJedis implements BasicCommands, BinaryJedisCommands, MultiKey
         return jedisTransaction.exec();
     }
 
+    /**
+     *
+     */
     protected void checkIsInMultiOrPipeline() {
         if (client.isInMulti()) {
             throw new JedisDataException(

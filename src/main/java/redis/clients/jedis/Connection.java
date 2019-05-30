@@ -27,16 +27,27 @@ public class Connection implements Closeable {
 
   private String host = Protocol.DEFAULT_HOST;
   private int port = Protocol.DEFAULT_PORT;
+  //
   private Socket socket;
+  //输出流
   private RedisOutputStream outputStream;
+  //输入流
   private RedisInputStream inputStream;
+  //
   private int pipelinedCommands = 0;
+  //
   private int connectionTimeout = Protocol.DEFAULT_TIMEOUT;
+  //
   private int soTimeout = Protocol.DEFAULT_TIMEOUT;
+  //
   private boolean broken = false;
+  //
   private boolean ssl;
+  //
   private SSLSocketFactory sslSocketFactory;
+  //
   private SSLParameters sslParameters;
+  //
   private HostnameVerifier hostnameVerifier;
 
   public Connection() {
@@ -172,6 +183,12 @@ public class Connection implements Closeable {
     this.port = port;
   }
 
+  /**
+   * new 出socket
+   * socket.connect（需要host、port）
+   * 使用socket new 出 RedisOutputStream、RedisInputStream
+   *
+   */
   public void connect() {
     if (!isConnected()) {
       try {
@@ -206,7 +223,9 @@ public class Connection implements Closeable {
           }
         }
 
+        //输出流
         outputStream = new RedisOutputStream(socket.getOutputStream());
+        //输入流
         inputStream = new RedisInputStream(socket.getInputStream());
       } catch (IOException ex) {
         broken = true;
